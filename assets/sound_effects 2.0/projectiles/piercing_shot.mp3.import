@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvuj1ukrfl7we"
+path="res://.godot/imported/piercing_shot.mp3-0873bbe8cf63b78b216956a5a2c28e3d.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects 2.0/projectiles/piercing_shot.mp3"
+dest_files=["res://.godot/imported/piercing_shot.mp3-0873bbe8cf63b78b216956a5a2c28e3d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

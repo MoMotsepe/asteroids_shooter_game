@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://di57oy532nml8"
+path="res://.godot/imported/fire_shot.mp3-e77548b887d9d9b436650b7cabee6f80.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects 2.0/projectiles/fire_shot.mp3"
+dest_files=["res://.godot/imported/fire_shot.mp3-e77548b887d9d9b436650b7cabee6f80.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

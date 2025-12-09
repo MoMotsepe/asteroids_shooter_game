@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://gpwr4w7vf7u1"]
+
+[ext_resource type="Texture2D" uid="uid://dhxkcyp5ko43u" path="res://assets/Untitled.png" id="1_2gyu8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fr2s"]
+texture = ExtResource("1_2gyu8")
+27:15/size_in_atlas = Vector2i(4, 4)
+27:15/0 = 0
+14:15/size_in_atlas = Vector2i(3, 4)
+14:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_no1ki"]
+sources/0 = SubResource("TileSetAtlasSource_1fr2s")
+
+[node name="Preview" type="TileMapLayer"]
+modulate = Color(1, 1, 1, 0.435294)
+light_mask = 3
+visibility_layer = 1023
+tile_set = SubResource("TileSet_no1ki")

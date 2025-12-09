@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckldymxvkjbx7"]
+
+[ext_resource type="Script" uid="uid://c1qrdb52x6yef" path="res://scenes/asteroids/brute_asteroid.gd" id="1_qm4tl"]
+[ext_resource type="AudioStream" uid="uid://c1qbjihno7f66" path="res://assets/sound_effects 2.0/asteroids/brute_explosion.mp3" id="2_b04qn"]
+[ext_resource type="Script" uid="uid://sjxqn0uaap86" path="res://scenes/game/healthbar.gd" id="2_qm4tl"]
+[ext_resource type="PackedScene" uid="uid://is6j1jsjuhjs" path="res://assets/Custom Assets/Asteriods Use/Brute Asteroid.glb" id="3_qm4tl"]
+[ext_resource type="AudioStream" uid="uid://dje4so67i0do" path="res://assets/sound_effects/others/collision_impact.mp3" id="3_uo1ga"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b04qn"]
+radius = 62.0725
+
+[sub_resource type="Curve" id="Curve_qm4tl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.818182, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_b04qn"]
+_data = [Vector2(0.05232559, 1), 0.0, 0.0, 0, 0, Vector2(0.8546512, 0.15730345), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="BruteAsteroid" type="Area2D" groups=["Asteroids"]]
+z_index = 4
+collision_layer = 2
+collision_mask = 205
+script = ExtResource("1_qm4tl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b04qn")
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Effects"]
+emitting = false
+amount = 75
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 250.0
+initial_velocity_max = 350.0
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_qm4tl")
+color = Color(0.513942, 0.287497, 0.305616, 1)
+
+[node name="EffectTimer" type="Timer" parent="Effects"]
+wait_time = 1.2
+
+[node name="Explosion_Sound" type="AudioStreamPlayer2D" parent="Effects"]
+stream = ExtResource("2_b04qn")
+volume_db = -11.975
+bus = &"SFX"
+
+[node name="CollisionParticles" type="CPUParticles2D" parent="Effects"]
+z_index = 10
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_b04qn")
+color = Color(0.5137255, 0.28627452, 0.30588236, 1)
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="Effects"]
+stream = ExtResource("3_uo1ga")
+volume_db = 5.05
+bus = &"SFX"
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_qm4tl")
+metadata/_custom_type_script = "uid://sjxqn0uaap86"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+clip_contents = true
+offset_left = -71.0
+offset_top = -85.0
+offset_right = 79.0
+offset_bottom = 75.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+mesh_lod_threshold = 0.0
+fsr_sharpness = 0.4
+canvas_cull_mask = 4293918722
+size = Vector2i(150, 150)
+size_2d_override = Vector2i(150, 150)
+render_target_update_mode = 4
+
+[node name="Camera3D_Brute_asteriod" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.0792402, -0.0845996, -0.993259, -0.175781, 0.979593, -0.0974591, 0.981235, 0.182318, 0.0627522, -1.34527, -0.989388, 1.47751)
+cull_mask = 2
+current = true
+fov = 81.4
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.881681, 0.372103, -0.290135, -0.0348001, 0.664499, 0.746478, 0.470561, -0.648059, 0.598825, 2.97163, 1.71391, 5.96572)
+layers = 524290
+light_color = Color(0.930515, 2.86378e-06, 1.15514e-06, 1)
+light_energy = 0.695
+light_specular = 0.0
+light_bake_mode = 1
+light_cull_mask = 4293918722
+shadow_transmittance_bias = 0.505
+shadow_opacity = 0.55
+shadow_caster_mask = 4293918722
+directional_shadow_mode = 0
+directional_shadow_max_distance = 96.6
+directional_shadow_pancake_size = 26.0
+
+[node name="Brute Asteroid" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_qm4tl")]
+transform = Transform3D(0.930033, 0, -0.367475, 0, 1, 0, 0.367475, 0, 0.930033, 2.82288, -0.98847, 0.886123)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Effects/EffectTimer" to="." method="_on_effect_timer_timeout"]
+[connection signal="health_depleted" from="Healthbar" to="." method="_on_healthbar_health_depleted"]

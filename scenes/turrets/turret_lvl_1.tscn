@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b58g22orf545m"]
+
+[ext_resource type="Texture2D" uid="uid://du6f1wgvh8a25" path="res://assets/towerDefense_tile249.png" id="1_8tnmx"]
+
+[node name="Turret lvl1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8tnmx")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Area2D"]
+position = Vector2(0, -8)
+build_mode = 1
+polygon = PackedVector2Array(-8, -24, -8, -8, -24, 8, -24, 24, -16, 40, 16, 40, 24, 24, 24, 8, 8, -8, 8, -24)

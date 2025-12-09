@@ -1,0 +1,358 @@
+[gd_scene load_steps=48 format=3 uid="uid://onpkcc7vhp7c"]
+
+[ext_resource type="Script" uid="uid://2idiwnk35f4c" path="res://scenes/game/hud.gd" id="1_kqgwg"]
+[ext_resource type="Texture2D" uid="uid://dnhs8i7wtvumq" path="res://assets/pngs/Currency_logo_v3.png" id="2_18kwx"]
+[ext_resource type="Script" uid="uid://dtt72ycurjuwr" path="res://scenes/game/speed_removal_zone.gd" id="2_vbefc"]
+[ext_resource type="FontFile" uid="uid://dmkk06o8nk7i1" path="res://assets/80s-retro-future.ttf" id="3_wbjd3"]
+[ext_resource type="Script" uid="uid://da5e7xm58d1ei" path="res://scenes/game/pause_button.gd" id="4_8m1vl"]
+[ext_resource type="Texture2D" uid="uid://cbp5brqrrpey4" path="res://assets/pngs/PauseButton/PauseButton.png" id="4_wbjd3"]
+[ext_resource type="Texture2D" uid="uid://cjf5tdk3tser6" path="res://assets/pngs/PauseButton/PauseButtonClicked.png" id="5_4pm6o"]
+[ext_resource type="Script" uid="uid://dx5a8b505apoq" path="res://scenes/game/ui_manager.gd" id="5_8m1vl"]
+[ext_resource type="PackedScene" uid="uid://divcoyo4r342x" path="res://scenes/game/pause_menu_2.0.tscn" id="5_dhtho"]
+[ext_resource type="Texture2D" uid="uid://dfp0jyljuv2dx" path="res://assets/pngs/PauseButton/PauseButtonHover.png" id="6_18kwx"]
+[ext_resource type="Texture2D" uid="uid://dk7hvlu1xixi8" path="res://assets/pngs/BlackHole/0.png" id="6_kkrim"]
+[ext_resource type="AudioStream" uid="uid://4qjkg6asbdj4" path="res://assets/sound_effects/others/ButtonActivate.mp3" id="6_o5q3o"]
+[ext_resource type="Texture2D" uid="uid://nrbb7dmbt1pg" path="res://assets/pngs/BlackHole/1.png" id="7_xquqv"]
+[ext_resource type="Texture2D" uid="uid://6krl3htuqvmi" path="res://assets/pngs/BlackHole/2.png" id="8_md7ig"]
+[ext_resource type="Texture2D" uid="uid://ddxooxsrftt06" path="res://assets/pngs/BlackHole/3.png" id="9_6ba3t"]
+[ext_resource type="Texture2D" uid="uid://d1dqvf3hbwyxv" path="res://assets/pngs/BlackHole/4.png" id="10_u2de0"]
+[ext_resource type="Texture2D" uid="uid://bp0nlep0ft63t" path="res://assets/pngs/New_Currency_logo_v2.png" id="10_xmpec"]
+[ext_resource type="Texture2D" uid="uid://b1plnpauh0dhd" path="res://assets/pngs/BlackHole/5.png" id="11_wl5to"]
+[ext_resource type="Texture2D" uid="uid://cv0xpqbt4fw7o" path="res://assets/pngs/BlackHole/6.png" id="12_fvcyp"]
+[ext_resource type="Texture2D" uid="uid://c8kpev8ikrqv3" path="res://assets/pngs/BlackHole/BHButton.png" id="13_3x22r"]
+[ext_resource type="Texture2D" uid="uid://brioxpjbscra7" path="res://assets/pngs/BlackHole/BHButtonHover.png" id="14_sh6bi"]
+[ext_resource type="Texture2D" uid="uid://bhfr068lyuus8" path="res://assets/pngs/BlackHole/BHButtonPressed.png" id="14_xquqv"]
+[ext_resource type="Script" uid="uid://e27fvxmotsf0" path="res://scenes/game/black_hole_button.gd" id="16_md7ig"]
+[ext_resource type="Texture2D" uid="uid://bwimybtumr2ug" path="res://assets/pngs/BlackHole/BHButtonDisabled.png" id="16_u2de0"]
+[ext_resource type="AudioStream" uid="uid://ghpb7kfd407t" path="res://assets/sound_effects 2.0/others/black_hole_ability_activate.mp3" id="17_6ba3t"]
+[ext_resource type="Texture2D" uid="uid://ceaqu2ijlyxhu" path="res://assets/pngs/Shield/ShieldButton.png" id="19_d3qgq"]
+[ext_resource type="Texture2D" uid="uid://uklmckahh06o" path="res://assets/pngs/Shield/ShieldButtonPressed.png" id="20_u5wee"]
+[ext_resource type="Texture2D" uid="uid://2eqeihawr5rc" path="res://assets/pngs/Shield/ShieldButtonHover.png" id="21_o5q3o"]
+[ext_resource type="Texture2D" uid="uid://bnoia56vs84k8" path="res://assets/pngs/Shield/ShieldButtonDisabled.png" id="22_qsgy6"]
+[ext_resource type="AudioStream" uid="uid://decei7mwwn8v5" path="res://assets/sound_effects 2.0/others/shield_ability_activate.mp3" id="23_bx7gn"]
+[ext_resource type="Script" uid="uid://dtllmceooqbrv" path="res://scenes/game/shield_button.gd" id="23_u5wee"]
+[ext_resource type="Script" uid="uid://d2doqygj8uym3" path="res://scenes/game/shock_wave_button.gd" id="26_qsgy6"]
+[ext_resource type="Texture2D" uid="uid://cpryneu3ctads" path="res://assets/pngs/Shockwave/Shockwave_0.png" id="27_ukgn2"]
+[ext_resource type="Texture2D" uid="uid://cdffhxv3j6hpd" path="res://assets/pngs/Shockwave/Shockwave_1.png" id="28_4nh0j"]
+[ext_resource type="Texture2D" uid="uid://dtv1cgkqciq0t" path="res://assets/pngs/Shockwave/Shockwave_2.png" id="29_whu6x"]
+[ext_resource type="Texture2D" uid="uid://dis7tt53ilp10" path="res://assets/pngs/Shockwave/Shockwave_3.png" id="30_b72m5"]
+[ext_resource type="Texture2D" uid="uid://ciwbnp2ukdrcu" path="res://assets/pngs/Shockwave/Shockwave_4.png" id="31_3urq7"]
+[ext_resource type="Texture2D" uid="uid://dcgk26eu4x4f1" path="res://assets/pngs/Shockwave/Shockwave_5.png" id="32_wbjd3"]
+[ext_resource type="Texture2D" uid="uid://mxv7qxgry148" path="res://assets/pngs/Shockwave/ShockwaveButton.png" id="34_3urq7"]
+[ext_resource type="AudioStream" uid="uid://cnaqxg156pshd" path="res://assets/sound_effects/others/shock_wave_ability_activate.mp3" id="34_x6bd0"]
+[ext_resource type="Texture2D" uid="uid://sspcps3jrlbp" path="res://assets/pngs/Shockwave/ShockwaveButtonPressed.png" id="35_wbjd3"]
+[ext_resource type="Texture2D" uid="uid://pjxmyannmiyf" path="res://assets/pngs/Shockwave/ShockwaveButtonHover.png" id="36_x6bd0"]
+[ext_resource type="Texture2D" uid="uid://csn70ib4l33a2" path="res://assets/pngs/Shockwave/ShockwaveButtonDisabled.png" id="37_4pm6o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kqgwg"]
+font_size = 25
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d3qgq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kkrim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xquqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_md7ig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6ba3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u2de0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wl5to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fvcyp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4pm6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_ukgn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_4nh0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_whu6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_b72m5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3urq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_wbjd3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx7gn"]
+size = Vector2(1900, 489)
+
+[node name="HUD" type="Control" node_paths=PackedStringArray("currency_label", "Test_cur_Label", "titaterarium_label") groups=["hud"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1900.0
+offset_bottom = 900.0
+script = ExtResource("1_kqgwg")
+currency_label = NodePath("CurrencyImg/Label")
+Test_cur_Label = NodePath("UI_Manager/TEst")
+titaterarium_label = NodePath("UI_Manager/TitaterariumLabel")
+
+[node name="CurrencyImg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 81.0
+offset_right = 88.0
+offset_bottom = 149.0
+texture = ExtResource("2_18kwx")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CurrencyImg"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 21.0
+offset_right = 818.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("3_wbjd3")
+theme_override_font_sizes/font_size = 26
+text = "If you see this the labels code broke. Now I'm sad!"
+label_settings = SubResource("LabelSettings_kqgwg")
+
+[node name="PauseButton" type="TextureButton" parent="."]
+process_mode = 3
+texture_filter = 1
+layout_mode = 0
+offset_left = 1859.0
+offset_top = 4.0
+offset_right = 1935.0
+offset_bottom = 80.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_wbjd3")
+texture_pressed = ExtResource("5_4pm6o")
+texture_hover = ExtResource("6_18kwx")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_8m1vl")
+
+[node name="PauseMenu" parent="PauseButton" instance=ExtResource("5_dhtho")]
+visible = false
+z_index = 25
+layout_mode = 1
+offset_left = -2348.0
+offset_right = -1844.0
+
+[node name="UI_Manager" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_8m1vl")
+
+[node name="TEst" type="Label" parent="UI_Manager"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label" type="Label" parent="UI_Manager"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 9.0
+offset_right = 99.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("3_wbjd3")
+theme_override_font_sizes/font_size = 25
+text = "SCORE:"
+
+[node name="ScoreLabel" type="Label" parent="UI_Manager"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 9.0
+offset_right = 149.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("3_wbjd3")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Label2" type="Label" parent="UI_Manager"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 44.0
+offset_right = 79.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("3_wbjd3")
+theme_override_font_sizes/font_size = 25
+text = "TIME:"
+
+[node name="TimeLabel" type="Label" parent="UI_Manager"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 44.0
+offset_right = 149.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("3_wbjd3")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="GameTimer" type="Timer" parent="UI_Manager"]
+
+[node name="TitaterariumImage" type="TextureRect" parent="UI_Manager"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 149.0
+offset_right = 84.0
+offset_bottom = 220.0
+texture = ExtResource("10_xmpec")
+expand_mode = 1
+
+[node name="TitaterariumLabel" type="Label" parent="UI_Manager"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 170.0
+offset_right = 710.0
+offset_bottom = 213.0
+theme_override_fonts/font = ExtResource("3_wbjd3")
+theme_override_font_sizes/font_size = 26
+text = "placeholder"
+
+[node name="ButtonActivate" type="AudioStreamPlayer2D" parent="UI_Manager"]
+stream = ExtResource("6_o5q3o")
+volume_db = 5.55
+bus = &"SFX"
+
+[node name="BlackHole" type="Control" parent="UI_Manager"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlackHoleAnimation" type="AnimatedSprite2D" parent="UI_Manager/BlackHole"]
+visible = false
+z_index = 10
+position = Vector2(955, 467)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_d3qgq")
+frame = 6
+frame_progress = 1.0
+
+[node name="BlackHoleButton" type="TextureButton" parent="UI_Manager/BlackHole"]
+layout_mode = 0
+offset_left = 1824.0
+offset_top = 818.0
+offset_right = 1894.0
+offset_bottom = 888.0
+texture_normal = ExtResource("13_3x22r")
+texture_pressed = ExtResource("14_xquqv")
+texture_hover = ExtResource("14_sh6bi")
+texture_disabled = ExtResource("16_u2de0")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("16_md7ig")
+
+[node name="BlackHoleSound" type="AudioStreamPlayer2D" parent="UI_Manager/BlackHole"]
+stream = ExtResource("17_6ba3t")
+volume_db = 8.194
+bus = &"SFX"
+
+[node name="BlackHoleTimer" type="Timer" parent="UI_Manager/BlackHole"]
+wait_time = 20.0
+
+[node name="Shield" type="Control" parent="UI_Manager"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShieldButton" type="TextureButton" parent="UI_Manager/Shield"]
+layout_mode = 0
+offset_left = 1747.0
+offset_top = 818.0
+offset_right = 1817.0
+offset_bottom = 888.0
+texture_normal = ExtResource("19_d3qgq")
+texture_pressed = ExtResource("20_u5wee")
+texture_hover = ExtResource("21_o5q3o")
+texture_disabled = ExtResource("22_qsgy6")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("23_u5wee")
+
+[node name="ShieldSound" type="AudioStreamPlayer2D" parent="UI_Manager/Shield"]
+stream = ExtResource("23_bx7gn")
+bus = &"SFX"
+
+[node name="ShieldTimer" type="Timer" parent="UI_Manager/Shield"]
+wait_time = 20.0
+
+[node name="ShockWave" type="Control" parent="UI_Manager"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShockWaveAnimation" type="AnimatedSprite2D" parent="UI_Manager/ShockWave"]
+visible = false
+position = Vector2(951, 655)
+sprite_frames = SubResource("SpriteFrames_4pm6o")
+
+[node name="ShockWaveButton" type="TextureButton" parent="UI_Manager/ShockWave"]
+layout_mode = 0
+offset_left = 1670.0
+offset_top = 818.0
+offset_right = 1740.0
+offset_bottom = 888.0
+texture_normal = ExtResource("34_3urq7")
+texture_pressed = ExtResource("35_wbjd3")
+texture_hover = ExtResource("36_x6bd0")
+texture_disabled = ExtResource("37_4pm6o")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("26_qsgy6")
+
+[node name="ShockWaveSound" type="AudioStreamPlayer2D" parent="UI_Manager/ShockWave"]
+stream = ExtResource("34_x6bd0")
+bus = &"SFX"
+
+[node name="ShockWaveTimer" type="Timer" parent="UI_Manager/ShockWave"]
+wait_time = 20.0
+
+[node name="StunTimer" type="Timer" parent="UI_Manager/ShockWave"]
+wait_time = 3.0
+
+[node name="SpeedRemovalZone" type="Area2D" parent="UI_Manager/ShockWave"]
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("2_vbefc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI_Manager/ShockWave/SpeedRemovalZone"]
+position = Vector2(950, 655.5)
+shape = SubResource("RectangleShape2D_bx7gn")
+disabled = true
+
+[connection signal="pressed" from="PauseButton" to="PauseButton" method="_on_pressed"]
+[connection signal="timeout" from="UI_Manager/GameTimer" to="UI_Manager" method="_on_game_timer_timeout"]
+[connection signal="animation_finished" from="UI_Manager/BlackHole/BlackHoleAnimation" to="UI_Manager/BlackHole/BlackHoleButton" method="_on_black_hole_animation_animation_finished"]
+[connection signal="BlackHoleFinished" from="UI_Manager/BlackHole/BlackHoleButton" to="UI_Manager" method="_on_black_hole_button_black_hole_finished"]
+[connection signal="pressed" from="UI_Manager/BlackHole/BlackHoleButton" to="UI_Manager/BlackHole/BlackHoleButton" method="_on_pressed"]
+[connection signal="timeout" from="UI_Manager/BlackHole/BlackHoleTimer" to="UI_Manager" method="_on_black_hole_timer_timeout"]
+[connection signal="ShieldFinished" from="UI_Manager/Shield/ShieldButton" to="UI_Manager" method="_on_shield_button_shield_finished"]
+[connection signal="pressed" from="UI_Manager/Shield/ShieldButton" to="UI_Manager/Shield/ShieldButton" method="_on_pressed"]
+[connection signal="timeout" from="UI_Manager/Shield/ShieldTimer" to="UI_Manager" method="_on_shield_timer_timeout"]
+[connection signal="animation_finished" from="UI_Manager/ShockWave/ShockWaveAnimation" to="UI_Manager/ShockWave/ShockWaveButton" method="_on_shock_wave_animation_animation_finished"]
+[connection signal="ShockWaveFinished" from="UI_Manager/ShockWave/ShockWaveButton" to="UI_Manager" method="_on_shock_wave_button_shock_wave_finished"]
+[connection signal="pressed" from="UI_Manager/ShockWave/ShockWaveButton" to="UI_Manager/ShockWave/ShockWaveButton" method="_on_pressed"]
+[connection signal="timeout" from="UI_Manager/ShockWave/ShockWaveTimer" to="UI_Manager" method="_on_shock_wave_timer_timeout"]
+[connection signal="timeout" from="UI_Manager/ShockWave/StunTimer" to="UI_Manager/ShockWave/ShockWaveButton" method="_on_stun_timer_timeout"]

@@ -1,0 +1,68 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Asteroids Game"
+run/main_scene="uid://d3jdveqqi3qt7"
+config/features=PackedStringArray("4.5", "Mobile")
+config/icon="uid://jhgth42f0y7x"
+
+[autoload]
+
+Score="*res://scenes/score.gd"
+Currency="*res://scenes/currency.gd"
+TransitionScreen="*res://scenes/transition_screen.tscn"
+
+[display]
+
+window/size/viewport_width=1900
+window/size/viewport_height=900
+window/size/mode=3
+window/size/initial_position_type=3
+window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
+
+[dotnet]
+
+project/assembly_name="Asteroids Game"
+
+[global_group]
+
+turrets=""
+Asteroids=""
+hud=""
+game=""
+Boss=""
+Earth=""
+
+[input]
+
+Press={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(352, 14),"global_position":Vector2(361, 62),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[memory]
+
+limits/message_queue/max_size_mb=50
+
+[physics]
+
+2d/run_on_separate_thread=true
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

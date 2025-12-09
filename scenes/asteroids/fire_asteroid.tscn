@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbeh8bryvflas"]
+
+[ext_resource type="Script" uid="uid://c4ftx0qk8na3b" path="res://scenes/asteroids/fire_asteroid.gd" id="1_nl5sf"]
+[ext_resource type="AudioStream" uid="uid://3sao8xv6758o" path="res://assets/sound_effects 2.0/asteroids/fire_explosion.mp3" id="2_ksnfu"]
+[ext_resource type="AudioStream" uid="uid://dje4so67i0do" path="res://assets/sound_effects/others/collision_impact.mp3" id="3_0ba2r"]
+[ext_resource type="Script" uid="uid://sjxqn0uaap86" path="res://scenes/game/healthbar.gd" id="3_ksnfu"]
+[ext_resource type="PackedScene" uid="uid://damx88vgchvgh" path="res://assets/Custom Assets/Asteriods Use/Fire Asteroid.glb" id="4_ksnfu"]
+[ext_resource type="Script" uid="uid://bvab05wdpleij" path="res://assets/Custom Assets/Asteriods Use/normal_asteroid.gd" id="5_0ba2r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oij65"]
+radius = 45.0
+
+[sub_resource type="Curve" id="Curve_cdq2i"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.818182, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_oawjo"]
+_data = [Vector2(0.05232559, 1), 0.0, 0.0, 0, 0, Vector2(0.8546512, 0.15730345), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Fire_Asteroid" type="Area2D" groups=["Asteroids"]]
+z_index = 4
+texture_filter = 1
+collision_layer = 2
+collision_mask = 205
+script = ExtResource("1_nl5sf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oij65")
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Effects"]
+emitting = false
+amount = 75
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_cdq2i")
+color = Color(0.92549, 0.215686, 0.0980392, 1)
+
+[node name="EffectTimer" type="Timer" parent="Effects"]
+wait_time = 1.2
+
+[node name="Explosion_Sound" type="AudioStreamPlayer2D" parent="Effects"]
+stream = ExtResource("2_ksnfu")
+bus = &"SFX"
+
+[node name="CollisionParticles" type="CPUParticles2D" parent="Effects"]
+z_index = 10
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_oawjo")
+color = Color(0.6091495, 0.11779944, 0.033754576, 1)
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="Effects"]
+stream = ExtResource("3_0ba2r")
+volume_db = 5.05
+bus = &"SFX"
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_ksnfu")
+max_health = 10
+metadata/_custom_type_script = "uid://sjxqn0uaap86"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = -49.0
+offset_top = -55.0
+offset_right = 53.0
+offset_bottom = 51.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+mesh_lod_threshold = 0.0
+fsr_sharpness = 0.4
+canvas_cull_mask = 4293918722
+size = Vector2i(100, 100)
+render_target_update_mode = 4
+
+[node name="Camera3D_Fire_asteriod" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.0154417, 0.00105138, -0.244511, -0.0446447, 0.240891, -0.00178364, 0.240403, 0.044668, 0.0153743, -1.34527, -1.21067, 1.12521)
+cull_mask = 65540
+current = true
+fov = 57.3
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.133035, 0.991111, 0, -0.991111, 0.133035, 1.4905, -2.46408, -2.19946)
+layers = 65540
+light_color = Color(1, 0.462745, 0.215686, 1)
+light_energy = 9.153
+light_specular = 0.0
+light_bake_mode = 1
+light_cull_mask = 4293918724
+shadow_caster_mask = 4293918724
+
+[node name="Fire Asteroid" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_ksnfu")]
+transform = Transform3D(1, 0, 0, 0, 0.999991, 0.00427604, 0, -0.00427604, 0.999991, 4.02667, -1.56834, 0.554898)
+script = ExtResource("5_0ba2r")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Effects/EffectTimer" to="." method="_on_effect_timer_timeout"]
+[connection signal="health_depleted" from="Healthbar" to="." method="_on_healthbar_health_depleted"]

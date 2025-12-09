@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=3 uid="uid://cyr3vg7ljmkum"]
+
+[ext_resource type="Script" uid="uid://c40wwcujpivm0" path="res://scenes/asteroids/parasite_asteroid.gd" id="1_as3sl"]
+[ext_resource type="AudioStream" uid="uid://7w71605lxjlf" path="res://assets/sound_effects 2.0/asteroids/parasite_explosion.mp3" id="2_37ht0"]
+[ext_resource type="AudioStream" uid="uid://dje4so67i0do" path="res://assets/sound_effects/others/collision_impact.mp3" id="3_1gtl2"]
+[ext_resource type="Script" uid="uid://sjxqn0uaap86" path="res://scenes/game/healthbar.gd" id="3_37ht0"]
+[ext_resource type="Script" uid="uid://bvab05wdpleij" path="res://assets/Custom Assets/Asteriods Use/normal_asteroid.gd" id="5_1gtl2"]
+[ext_resource type="PackedScene" uid="uid://byyq6rmxsscbh" path="res://assets/Custom Assets/Asteriods Use/Parasite Asteroid.glb" id="5_mkiqx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oij65"]
+radius = 40.0125
+
+[sub_resource type="Curve" id="Curve_bfdvh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.818182, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_mkiqx"]
+_data = [Vector2(0.05232559, 1), 0.0, 0.0, 0, 0, Vector2(0.8546512, 0.15730345), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Parasite_Asteroid" type="Area2D" groups=["Asteroids"]]
+z_index = 4
+texture_filter = 1
+collision_layer = 2
+collision_mask = 237
+script = ExtResource("1_as3sl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oij65")
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Effects"]
+emitting = false
+amount = 75
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_bfdvh")
+color = Color(0.364706, 0.701961, 0.47451, 1)
+
+[node name="EffectTimer" type="Timer" parent="Effects"]
+wait_time = 1.2
+
+[node name="Explosion_Sound" type="AudioStreamPlayer2D" parent="Effects"]
+stream = ExtResource("2_37ht0")
+volume_db = -7.564
+bus = &"SFX"
+
+[node name="CollisionParticles" type="CPUParticles2D" parent="Effects"]
+z_index = 10
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_mkiqx")
+color = Color(0.3647059, 0.7019608, 0.4745098, 1)
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="Effects"]
+stream = ExtResource("3_1gtl2")
+volume_db = 5.05
+bus = &"SFX"
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_37ht0")
+max_health = 10
+metadata/_custom_type_script = "uid://sjxqn0uaap86"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+clip_contents = true
+offset_left = -95.0
+offset_top = -107.0
+offset_right = 105.0
+offset_bottom = 93.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+mesh_lod_threshold = 0.0
+fsr_sharpness = 0.4
+canvas_cull_mask = 4293918722
+size = Vector2i(200, 200)
+size_2d_override = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Camera3D_parasite_Asteriod" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.0154417, 0.00105138, -0.244511, -0.0446447, 0.240891, -0.00178364, 0.240403, 0.044668, 0.0153743, -1.34527, -1.21067, 1.12521)
+cull_mask = 131200
+current = true
+fov = 53.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.133035, 0.991111, 0, -0.991111, 0.133035, 1.69501, -2.18023, -0.322895)
+layers = 131200
+light_color = Color(0.508734, 1, 0.643455, 1)
+light_energy = 1.001
+light_indirect_energy = 7.4
+light_volumetric_fog_energy = 1.062
+light_bake_mode = 1
+light_cull_mask = 4293918848
+
+[node name="Parasite_Asteroid" parent="SubViewportContainer/SubViewport" instance=ExtResource("5_mkiqx")]
+transform = Transform3D(0.43388274, 0.24848698, 0, -0.24848698, 0.43388274, 0, 0, 0, 0.5, 4.716, -1.477, 0.466)
+script = ExtResource("5_1gtl2")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Effects/EffectTimer" to="." method="_on_effect_timer_timeout"]
+[connection signal="health_depleted" from="Healthbar" to="." method="_on_healthbar_health_depleted"]

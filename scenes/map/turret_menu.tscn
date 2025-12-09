@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfvmmb0kdd12w"]
+
+[ext_resource type="Texture2D" uid="uid://bfabre0uc2jtx" path="res://assets/pngs/menu.png" id="1_amee0"]
+[ext_resource type="Script" uid="uid://cspj636tc6ky4" path="res://scenes/map/turret_menu.gd" id="2_jynb8"]
+[ext_resource type="FontFile" uid="uid://dmkk06o8nk7i1" path="res://assets/80s-retro-future.ttf" id="3_jynb8"]
+
+[node name="TurretMenu" type="TextureRect"]
+offset_right = 174.0
+offset_bottom = 143.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_amee0")
+expand_mode = 1
+script = ExtResource("2_jynb8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = -12.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="NormalTurret" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_jynb8")
+theme_override_font_sizes/font_size = 10
+text = "NORMAL TURRET
+COST: 5 PLUTONIUM"
+
+[node name="PiercingTurret" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_jynb8")
+theme_override_font_sizes/font_size = 10
+text = "PIERCING TURRET
+COST: 2 TITATERARIUM"
+
+[node name="IceTurret" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_jynb8")
+theme_override_font_sizes/font_size = 10
+text = "ICE TURRET
+COST: 5 TITATERARIUM"
+
+[node name="FireTurret" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_jynb8")
+theme_override_font_sizes/font_size = 10
+text = "FIRE TURRET
+COST: 5 TITATERARIUM"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/NormalTurret" to="." method="_on_normal_turret_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/PiercingTurret" to="." method="_on_piercing_turret_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/IceTurret" to="." method="_on_ice_turret_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/FireTurret" to="." method="_on_fire_turret_pressed"]

@@ -1,0 +1,597 @@
+[gd_scene load_steps=51 format=3 uid="uid://d3jdveqqi3qt7"]
+
+[ext_resource type="Script" uid="uid://bh00plxqkaiin" path="res://scenes/game/game_menu.gd" id="1_6ygue"]
+[ext_resource type="Texture2D" uid="uid://xnfrbd8ge6ys" path="res://assets/Space Menu.jpg" id="2_m4cfo"]
+[ext_resource type="AudioStream" uid="uid://dupf3e6d2n2hi" path="res://assets/mainmenutheme.mp3" id="3_dehnt"]
+[ext_resource type="FontFile" uid="uid://dmkk06o8nk7i1" path="res://assets/80s-retro-future.ttf" id="3_paljw"]
+[ext_resource type="Texture2D" uid="uid://2rqieflh8tjp" path="res://assets/Baren.png" id="3_y2var"]
+[ext_resource type="AudioStream" uid="uid://dkwpp7ugilnbp" path="res://assets/Audio/toggle_002.ogg" id="4_6ygue"]
+[ext_resource type="Texture2D" uid="uid://c1eg506nixypp" path="res://assets/Ice.png" id="4_xppml"]
+[ext_resource type="Script" uid="uid://3gci80b0ohqr" path="res://scenes/game/texture_rect_2.gd" id="5_6hmjw"]
+[ext_resource type="AudioStream" uid="uid://be8makh360ywo" path="res://assets/Audio/question_004.ogg" id="5_vpl7u"]
+[ext_resource type="Texture2D" uid="uid://bcaemnso8hcpw" path="res://assets/Terran.png" id="5_y61kw"]
+[ext_resource type="Texture2D" uid="uid://8sn4bekv88sh" path="res://assets/Lava.png" id="6_g4dfm"]
+[ext_resource type="Texture2D" uid="uid://dksfcq0k0bnl8" path="res://assets/Moon/1.png" id="7_iauow"]
+[ext_resource type="Script" uid="uid://xjn8x4p70051" path="res://scenes/game/texture_rect_4.gd" id="7_jywd2"]
+[ext_resource type="Texture2D" uid="uid://3fyya8art4vb" path="res://assets/Moon/2.png" id="8_1paag"]
+[ext_resource type="Texture2D" uid="uid://c5g5g7bvd35uk" path="res://assets/Moon/3.png" id="9_jywd2"]
+[ext_resource type="Texture2D" uid="uid://cwh6bkmo828cg" path="res://assets/Moon/4.png" id="10_6hmjw"]
+[ext_resource type="Texture2D" uid="uid://b7mq0ma6de4to" path="res://assets/Moon/5.png" id="11_hw2p4"]
+[ext_resource type="Texture2D" uid="uid://dpfdeqc5nd5ia" path="res://assets/Moon/6.png" id="12_mgm52"]
+[ext_resource type="Texture2D" uid="uid://db60t5cj4ti51" path="res://assets/Moon/7.png" id="13_s3pmq"]
+[ext_resource type="Texture2D" uid="uid://rs1n8k8ah4gu" path="res://assets/Moon/8.png" id="14_wmomm"]
+[ext_resource type="Texture2D" uid="uid://dfhn0ja1yk1v6" path="res://assets/Moon/9.png" id="15_wa1va"]
+[ext_resource type="Texture2D" uid="uid://bt0qudnogic2l" path="res://assets/Moon/10.png" id="16_x2rt3"]
+[ext_resource type="Texture2D" uid="uid://cga4k2rkqc05f" path="res://assets/Moon/11.png" id="17_6ju4m"]
+[ext_resource type="Texture2D" uid="uid://dteqpe72ljwex" path="res://assets/Moon/12.png" id="18_5ykvw"]
+[ext_resource type="Texture2D" uid="uid://dv8gxphvi8nlv" path="res://assets/Moon/13.png" id="19_2fkpv"]
+[ext_resource type="Texture2D" uid="uid://eh7g5wsu11we" path="res://assets/Moon/14.png" id="20_83ao5"]
+[ext_resource type="Texture2D" uid="uid://chuwecb0pp8pm" path="res://assets/Moon/15.png" id="21_tiija"]
+[ext_resource type="Texture2D" uid="uid://gtyx8padxxqa" path="res://assets/Moon/16.png" id="22_ano10"]
+[ext_resource type="Texture2D" uid="uid://ddoc6v88lda4h" path="res://assets/Moon/17.png" id="23_rqub5"]
+[ext_resource type="Texture2D" uid="uid://favlbcgema0m" path="res://assets/Moon/18.png" id="24_sts1u"]
+[ext_resource type="Texture2D" uid="uid://3n8678p183g2" path="res://assets/Moon/19.png" id="25_446xu"]
+[ext_resource type="Texture2D" uid="uid://cknwmlo3eonpt" path="res://assets/Moon/20.png" id="26_cyphf"]
+[ext_resource type="Texture2D" uid="uid://c0t1eimdf7e3n" path="res://assets/Moon/21.png" id="27_80ati"]
+[ext_resource type="Texture2D" uid="uid://crjr52yftk0vs" path="res://assets/Moon/22.png" id="28_1g620"]
+[ext_resource type="Texture2D" uid="uid://denok4w0rs74g" path="res://assets/Moon/23.png" id="29_jjqtj"]
+[ext_resource type="Texture2D" uid="uid://c6uw0mnkatso6" path="res://assets/Moon/24.png" id="30_emfl2"]
+[ext_resource type="Texture2D" uid="uid://cv6v80vn8ttl6" path="res://assets/Moon/25.png" id="31_vi2dw"]
+[ext_resource type="Texture2D" uid="uid://cghsckq2ojvv6" path="res://assets/Moon/26.png" id="32_ee1hi"]
+[ext_resource type="Texture2D" uid="uid://dbbt0crx5b6qg" path="res://assets/Moon/27.png" id="33_hqbl5"]
+[ext_resource type="Texture2D" uid="uid://bpjwlvotcehgx" path="res://assets/Moon/28.png" id="34_5mxbb"]
+[ext_resource type="Texture2D" uid="uid://ceexm387cxac1" path="res://assets/Moon/29.png" id="35_mae3a"]
+[ext_resource type="Texture2D" uid="uid://diuxat2qltr0g" path="res://assets/Moon/30.png" id="36_yyw7e"]
+[ext_resource type="Script" uid="uid://nknman2btx87" path="res://scenes/game/movingmoon.gd" id="37_1paag"]
+[ext_resource type="Texture2D" uid="uid://codr7pd6pe6co" path="res://assets/pngs/HorizontalLine.png" id="44_mgm52"]
+[ext_resource type="PackedScene" uid="uid://d1xtwaw5asfu1" path="res://scenes/game/volume_slider.tscn" id="45_s3pmq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ckkk"]
+atlas = ExtResource("7_iauow")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y61kw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ckkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1paag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jywd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6hmjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hw2p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mgm52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_s3pmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wmomm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wa1va")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_x2rt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6ju4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5ykvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_2fkpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_83ao5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_tiija")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ano10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_rqub5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_sts1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_446xu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_cyphf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_80ati")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_1g620")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_jjqtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_emfl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vi2dw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_ee1hi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_hqbl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_5mxbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_mae3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_yyw7e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmomm"]
+bg_color = Color(0, 0, 0, 0.8509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgm52"]
+bg_color = Color(0, 0, 0, 0.8509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3pmq"]
+bg_color = Color(0, 0, 0, 0.8509804)
+
+[node name="Game Menu" type="Node2D"]
+script = ExtResource("1_6ygue")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -387.0
+offset_right = 1903.0
+offset_bottom = 898.0
+texture = ExtResource("2_m4cfo")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 937.0
+offset_top = 492.0
+offset_right = 1041.0
+offset_bottom = 595.0
+texture = ExtResource("3_y2var")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1024.97
+offset_top = 172.511
+offset_right = 1072.97
+offset_bottom = 220.511
+texture = ExtResource("4_xppml")
+script = ExtResource("5_6hmjw")
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1589.33
+offset_top = 448.103
+offset_right = 1664.33
+offset_bottom = 527.103
+texture = ExtResource("5_y61kw")
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1539.0
+offset_top = 688.0
+offset_right = 1623.0
+offset_bottom = 774.0
+texture = ExtResource("6_g4dfm")
+script = ExtResource("7_jywd2")
+
+[node name="TextureRect5" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1629.0
+offset_top = 124.0
+offset_right = 1677.0
+offset_bottom = 172.0
+texture = ExtResource("3_y2var")
+flip_h = true
+flip_v = true
+
+[node name="movingmoon" type="AnimatedSprite2D" parent="TextureRect"]
+position = Vector2(1953.88, 289.577)
+scale = Vector2(2.74303, 2.875)
+sprite_frames = SubResource("SpriteFrames_y61kw")
+frame_progress = 0.459087
+script = ExtResource("37_1paag")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 481.0
+offset_top = 255.0
+offset_right = 1426.0
+offset_bottom = 392.0
+theme_override_colors/font_shadow_color = Color(0.965375, 0.396356, 0.672653, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.298039, 0.396078, 1)
+theme_override_constants/outline_size = 45
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 100
+text = "ASTEROIDS GAME"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+offset_left = 794.0
+offset_top = 541.0
+offset_right = 1105.0
+offset_bottom = 769.0
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="StartButton" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.298039, 0.396078, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 38
+text = "START GAME"
+
+[node name="SettingsButton" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.29803923, 0.39607844, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 38
+text = "SETTINGS"
+
+[node name="HighScoresButton" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.29803923, 0.39607844, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 38
+text = " HIGH SCORES"
+
+[node name="ExitButton" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.298039, 0.396078, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 36
+text = "EXIT"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dehnt")
+autoplay = true
+bus = &"Music"
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6ygue")
+volume_db = 3.528
+bus = &"SFX"
+
+[node name="HoverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vpl7u")
+bus = &"SFX"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 607.664
+offset_top = 840.518
+offset_right = 1311.66
+offset_bottom = 863.518
+theme_override_fonts/font = ExtResource("3_paljw")
+text = "WORK IN PROGRESS BUILD. WHAT YOU ARE PLAYING IS NOT FINAL PRODUCT. ALPHA BUILD"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SettingsMenu" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = 78.0
+offset_right = 252.0
+offset_bottom = 334.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wmomm")
+
+[node name="Settings" type="VBoxContainer" parent="CanvasLayer/SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.16061
+offset_top = -91.0
+offset_right = 146.16061
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMenu/Settings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 26
+text = "VOLUME SETTINGS"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/SettingsMenu/Settings"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SettingsMenu/Settings/Control"]
+position = Vector2(134.79037, -1.9322205)
+scale = Vector2(0.36191833, 0.13493143)
+texture = ExtResource("44_mgm52")
+
+[node name="MasterVolume" type="HBoxContainer" parent="CanvasLayer/SettingsMenu/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMenu/Settings/MasterVolume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 20
+text = "MASTER"
+
+[node name="MasterSlider" parent="CanvasLayer/SettingsMenu/Settings/MasterVolume" instance=ExtResource("45_s3pmq")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bus_name = "Master"
+
+[node name="MusicVolume" type="HBoxContainer" parent="CanvasLayer/SettingsMenu/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMenu/Settings/MusicVolume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 20
+text = "MUSIC"
+
+[node name="VolumeSlider" parent="CanvasLayer/SettingsMenu/Settings/MusicVolume" instance=ExtResource("45_s3pmq")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bus_name = "Music"
+
+[node name="SFXVolume" type="HBoxContainer" parent="CanvasLayer/SettingsMenu/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMenu/Settings/SFXVolume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 20
+text = "SFX"
+
+[node name="VolumeSlider" parent="CanvasLayer/SettingsMenu/Settings/SFXVolume" instance=ExtResource("45_s3pmq")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bus_name = "SFX"
+
+[node name="Control2" type="Control" parent="CanvasLayer/SettingsMenu/Settings"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SettingsMenu/Settings/Control2"]
+position = Vector2(134.79037, -1.9322205)
+scale = Vector2(0.36191833, 0.13493143)
+texture = ExtResource("44_mgm52")
+
+[node name="BackButton" type="Button" parent="CanvasLayer/SettingsMenu/Settings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 26
+text = "BACK"
+
+[node name="HighScoresMenu" type="TabContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -74.0
+offset_right = 252.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.29803923, 0.39607844, 1)
+theme_override_constants/side_margin = 0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 38
+tab_alignment = 1
+current_tab = 0
+
+[node name="Scores" type="TabBar" parent="CanvasLayer/HighScoresMenu"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/HighScoresMenu/Scores"]
+layout_mode = 0
+offset_right = 504.0
+offset_bottom = 411.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mgm52")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HighScoresMenu/Scores/Panel"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = 32.0
+offset_right = 171.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Headings" type="HBoxContainer" parent="CanvasLayer/HighScoresMenu/Scores/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Rank" type="Label" parent="CanvasLayer/HighScoresMenu/Scores/Panel/VBoxContainer/Headings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 30
+text = " RANK"
+
+[node name="Score" type="Label" parent="CanvasLayer/HighScoresMenu/Scores/Panel/VBoxContainer/Headings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 30
+text = " SCORE "
+
+[node name="Control" type="Control" parent="CanvasLayer/HighScoresMenu/Scores/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/HighScoresMenu/Scores/Panel/VBoxContainer/Control"]
+position = Vector2(134.79, -1.932)
+scale = Vector2(0.362, 0.135)
+texture = ExtResource("44_mgm52")
+
+[node name="Values" type="HBoxContainer" parent="CanvasLayer/HighScoresMenu/Scores/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 140
+
+[node name="Rank" type="Label" parent="CanvasLayer/HighScoresMenu/Scores/Panel/VBoxContainer/Values"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="Score" type="Label" parent="CanvasLayer/HighScoresMenu/Scores/Panel/VBoxContainer/Values"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="Back" type="Button" parent="CanvasLayer/HighScoresMenu/Scores/Panel"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 358.0
+offset_right = 398.0
+offset_bottom = 396.0
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 26
+text = "Back"
+
+[node name="Times" type="TabBar" parent="CanvasLayer/HighScoresMenu"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/HighScoresMenu/Times"]
+layout_mode = 0
+offset_right = 504.0
+offset_bottom = 411.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s3pmq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HighScoresMenu/Times/Panel"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = 32.0
+offset_right = 171.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Headings" type="HBoxContainer" parent="CanvasLayer/HighScoresMenu/Times/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Rank" type="Label" parent="CanvasLayer/HighScoresMenu/Times/Panel/VBoxContainer/Headings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 30
+text = " RANK "
+
+[node name="Time" type="Label" parent="CanvasLayer/HighScoresMenu/Times/Panel/VBoxContainer/Headings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 30
+text = " TIME "
+
+[node name="Control" type="Control" parent="CanvasLayer/HighScoresMenu/Times/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/HighScoresMenu/Times/Panel/VBoxContainer/Control"]
+position = Vector2(134.79, -1.932)
+scale = Vector2(0.362, 0.135)
+texture = ExtResource("44_mgm52")
+
+[node name="Values" type="HBoxContainer" parent="CanvasLayer/HighScoresMenu/Times/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 140
+
+[node name="Rank" type="Label" parent="CanvasLayer/HighScoresMenu/Times/Panel/VBoxContainer/Values"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="Time" type="Label" parent="CanvasLayer/HighScoresMenu/Times/Panel/VBoxContainer/Values"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="Back" type="Button" parent="CanvasLayer/HighScoresMenu/Times/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_top = -53.0
+offset_right = 146.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_paljw")
+theme_override_font_sizes/font_size = 26
+text = " Back "
+
+[connection signal="mouse_entered" from="Buttons/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="Buttons/SettingsButton" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="Buttons/HighScoresButton" to="." method="_on_high_scores_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/HighScoresButton" to="." method="_on_high_scores_button_pressed"]
+[connection signal="mouse_entered" from="Buttons/ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/SettingsMenu/Settings/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/SettingsMenu/Settings/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="tab_clicked" from="CanvasLayer/HighScoresMenu" to="." method="_on_high_scores_menu_tab_clicked"]
+[connection signal="tab_hovered" from="CanvasLayer/HighScoresMenu" to="." method="_on_high_scores_menu_tab_hovered"]
+[connection signal="mouse_entered" from="CanvasLayer/HighScoresMenu/Scores/Panel/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/HighScoresMenu/Scores/Panel/Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/HighScoresMenu/Times/Panel/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/HighScoresMenu/Times/Panel/Back" to="." method="_on_back_pressed"]

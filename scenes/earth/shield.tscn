@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://jcdyvu1bhs15"]
+
+[ext_resource type="Script" uid="uid://bpbcp45rs3vja" path="res://scenes/earth/shield.gd" id="1_o6vlk"]
+[ext_resource type="Texture2D" uid="uid://cd8ns124ved5d" path="res://assets/pngs/Shield/shield.png" id="1_tnakc"]
+[ext_resource type="Script" uid="uid://sjxqn0uaap86" path="res://scenes/game/healthbar.gd" id="2_5gkcu"]
+[ext_resource type="Texture2D" uid="uid://xk36yl4dprr6" path="res://assets/pngs/health_bar_under.png" id="2_7ljdi"]
+[ext_resource type="Texture2D" uid="uid://b1w7kdifvefap" path="res://assets/pngs/health_bar_blue_progress.png" id="4_o6vlk"]
+
+[node name="Shield" type="Area2D"]
+z_index = 5
+collision_mask = 2
+script = ExtResource("1_o6vlk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -123, 105, -121, 189, -117, 269, -111, 361, -102, 440, -92, 504, -82, 563, -71, 629, -57, 688, -42, 742, -27, 782, -14, 829, 5, 876, 27, 908, 42, 933, 58, 955, 75, 975, 93, 992, 113, 1008, 135, 1014, 151, 1018, 172, 1019, 199, -1020, 198, -1019, 166, -1009, 137, -988, 106, -959, 78, -924, 52, -874, 25, -811, -2, -751, -23, -697, -40, -636, -55, -565, -71, -499, -83, -413, -96, -309, -108, -219, -115, -124, -120)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.96443e-06, 182.205)
+rotation = -1.5708
+scale = Vector2(1.18854, 3.97983)
+texture = ExtResource("1_tnakc")
+region_rect = Rect2(267.705, 36.216, 516.535, 243.824)
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+offset_left = -386.0
+offset_top = -69.0
+offset_right = 392.0
+offset_bottom = -53.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_7ljdi")
+texture_progress = ExtResource("4_o6vlk")
+script = ExtResource("2_5gkcu")
+metadata/_custom_type_script = "uid://sjxqn0uaap86"
+
+[node name="Duration" type="Timer" parent="."]
+wait_time = 20.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Duration" to="." method="_on_duration_timeout"]

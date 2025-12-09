@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://cis8fvrog1tid"]
+
+[ext_resource type="Script" uid="uid://co55rfqcd8vqe" path="res://scenes/asteroids/ice_asteroid.gd" id="1_mbsdc"]
+[ext_resource type="AudioStream" uid="uid://cmuh67hhpseok" path="res://assets/sound_effects 2.0/asteroids/ice_explosion.mp3" id="2_ya7sg"]
+[ext_resource type="AudioStream" uid="uid://dje4so67i0do" path="res://assets/sound_effects/others/collision_impact.mp3" id="3_08mky"]
+[ext_resource type="Script" uid="uid://sjxqn0uaap86" path="res://scenes/game/healthbar.gd" id="3_ya7sg"]
+[ext_resource type="Script" uid="uid://bvab05wdpleij" path="res://assets/Custom Assets/Asteriods Use/normal_asteroid.gd" id="5_2ahof"]
+[ext_resource type="PackedScene" uid="uid://355aqypnyn2c" path="res://assets/Custom Assets/Asteriods Use/Ice_Asteroid.glb" id="6_fm8v6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oij65"]
+radius = 42.0
+
+[sub_resource type="Curve" id="Curve_jaxe1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.818182, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2ahof"]
+_data = [Vector2(0.05232559, 1), 0.0, 0.0, 0, 0, Vector2(0.8546512, 0.15730345), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Ice_Asteroid" type="Area2D" groups=["Asteroids"]]
+z_index = 4
+texture_filter = 1
+collision_layer = 2
+collision_mask = 205
+script = ExtResource("1_mbsdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oij65")
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Effects"]
+emitting = false
+amount = 75
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_jaxe1")
+color = Color(0.175098, 0.736235, 0.781918, 1)
+
+[node name="EffectTimer" type="Timer" parent="Effects"]
+wait_time = 1.2
+
+[node name="Explosion_Sound" type="AudioStreamPlayer2D" parent="Effects"]
+stream = ExtResource("2_ya7sg")
+volume_db = -7.564
+bus = &"SFX"
+
+[node name="CollisionParticles" type="CPUParticles2D" parent="Effects"]
+z_index = 10
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_2ahof")
+color = Color(0.1764706, 0.7372549, 0.78039217, 1)
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="Effects"]
+stream = ExtResource("3_08mky")
+volume_db = 5.05
+bus = &"SFX"
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_ya7sg")
+max_health = 8
+metadata/_custom_type_script = "uid://sjxqn0uaap86"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+clip_contents = true
+offset_left = -72.0
+offset_top = -88.0
+offset_right = 128.0
+offset_bottom = 112.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+mesh_lod_threshold = 0.0
+fsr_sharpness = 0.4
+canvas_cull_mask = 4293918728
+size = Vector2i(150, 150)
+size_2d_override = Vector2i(150, 150)
+render_target_update_mode = 4
+
+[node name="Camera3D_ice_Asteriod" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.0720377, -0.0447558, -0.996397, -0.178853, 0.98222, -0.0570497, 0.981235, 0.182318, 0.0627522, -1.34527, -1.21067, 1.12521)
+cull_mask = 262152
+current = true
+fov = 40.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.133035, 0.991111, 0, -0.991111, 0.133035, 1.69501, -2.18023, -0.322895)
+layers = 262152
+light_color = Color(0.494118, 1, 1, 1)
+light_energy = 1.533
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.797
+light_specular = 13.581
+light_bake_mode = 1
+light_cull_mask = 4293918728
+shadow_transmittance_bias = 0.505
+shadow_opacity = 0.55
+shadow_caster_mask = 4293918728
+directional_shadow_mode = 0
+directional_shadow_pancake_size = 27.5
+
+[node name="Ice_Asteroid" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_fm8v6")]
+transform = Transform3D(0.499998, 2.03727e-09, 0.00123918, 0.000733855, 0.402892, -0.296104, -0.000998515, 0.296105, 0.402891, 4.37633, -1.17848, 0.557207)
+script = ExtResource("5_2ahof")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Effects/EffectTimer" to="." method="_on_effect_timer_timeout"]
+[connection signal="health_depleted" from="Healthbar" to="." method="_on_healthbar_health_depleted"]

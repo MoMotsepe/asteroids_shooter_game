@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bc6g62l4tylme"
+path="res://.godot/imported/shock_wave_ability_activate.mp3-abe8447b5f2e3680cbd6a7b5c4d8eeda.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects 2.0/others/shock_wave_ability_activate.mp3"
+dest_files=["res://.godot/imported/shock_wave_ability_activate.mp3-abe8447b5f2e3680cbd6a7b5c4d8eeda.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

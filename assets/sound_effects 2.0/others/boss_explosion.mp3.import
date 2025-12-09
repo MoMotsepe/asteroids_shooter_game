@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0lw4aw43bv3o"
+path="res://.godot/imported/boss_explosion.mp3-ccc1ccbb98156269378f28759db86efd.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects 2.0/others/boss_explosion.mp3"
+dest_files=["res://.godot/imported/boss_explosion.mp3-ccc1ccbb98156269378f28759db86efd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1xtwaw5asfu1"]
+
+[ext_resource type="Script" uid="uid://yl2p3w6bugvx" path="res://scenes/game/volume_slider.gd" id="1_mraf1"]
+[ext_resource type="AudioStream" uid="uid://be8makh360ywo" path="res://assets/Audio/question_004.ogg" id="2_kkgir"]
+
+[node name="VolumeSlider" type="HSlider"]
+offset_right = 87.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_mraf1")
+
+[node name="HoverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kkgir")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

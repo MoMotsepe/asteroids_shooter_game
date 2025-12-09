@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdayev8btv81l"
+path="res://.godot/imported/regular_shot.mp3-ac96448422ffad3d798312becccc009e.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects 2.0/projectiles/regular_shot.mp3"
+dest_files=["res://.godot/imported/regular_shot.mp3-ac96448422ffad3d798312becccc009e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://bttbm3peg4btk"]
+
+[ext_resource type="AudioStream" uid="uid://b7f72w2mai3co" path="res://assets/sound_effects 2.0/projectiles/ice_shot.mp3" id="1_3uivf"]
+[ext_resource type="Script" uid="uid://bxbfy3t2xunit" path="res://scenes/turrets/ice_turret.gd" id="1_4ulbd"]
+[ext_resource type="Script" uid="uid://bys7pe2ejat8l" path="res://scenes/turrets/click_area.gd" id="2_3b54r"]
+[ext_resource type="FontFile" uid="uid://dmkk06o8nk7i1" path="res://assets/80s-retro-future.ttf" id="4_npikr"]
+[ext_resource type="PackedScene" uid="uid://bporecbpb8wpf" path="res://assets/Custom Assets/Turrets/Ice Turret.glb" id="5_npikr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ulbd"]
+radius = 35.0143
+
+[node name="IceTurret" type="Node2D" groups=["turrets"]]
+z_index = 3
+script = ExtResource("1_4ulbd")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("2_3b54r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4ulbd")
+
+[node name="Shoot_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_3uivf")
+volume_db = -15.757
+bus = &"SFX"
+
+[node name="MenuTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -34.0
+offset_right = 2.0
+offset_bottom = -11.0
+rotation = 1.5707964
+theme_override_fonts/font = ExtResource("4_npikr")
+text = "Level: 1"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = -44.0
+offset_top = -58.0
+offset_right = 468.0
+offset_bottom = 454.0
+rotation = 0.082030475
+scale = Vector2(0.2, 0.2)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4293918752
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -0.13398623, 0.9909832, 0, -0.9909832, -0.13398623, -0.294, 3.21, -0.628)
+cull_mask = 262144
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.9961947, -0.019160924, 0.085023336, -8.5283936e-08, -0.97553456, -0.2198462, 0.08715566, 0.21900961, -0.9718224, -0.339, 3.579, 0.229)
+layers = 262144
+
+[node name="Ice Turret" parent="SubViewportContainer/SubViewport" instance=ExtResource("5_npikr")]
+transform = Transform3D(-0.22868973, 0, -0.3034815, 0, 0.38, 0, 0.3034815, 0, -0.22868973, 0, 0, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="AreaClicked" from="Area2D" to="." method="_on_area_2d_area_clicked"]
+[connection signal="timeout" from="MenuTimer" to="." method="_on_menu_timer_timeout"]

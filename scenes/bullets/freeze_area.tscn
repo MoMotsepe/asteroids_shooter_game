@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://csux8epbjtwu5"]
+
+[ext_resource type="Script" uid="uid://dw0wdil38iol" path="res://scenes/bullets/freeze_area.gd" id="1_pra14"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pra14"]
+radius = 55.0091
+
+[sub_resource type="Curve" id="Curve_pra14"]
+_data = [Vector2(0.040404, 1), 0.0, 0.0, 0, 0, Vector2(0.939394, 0.35), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_m4jps"]
+offsets = PackedFloat32Array(0, 0.191882, 0.498155, 0.926199, 1)
+colors = PackedColorArray(0, 0.627451, 1, 1, 0, 0.792157, 1, 1, 0.666667, 1, 1, 1, 0.972549, 0.823529, 0.556863, 0, 1, 1, 1, 0)
+
+[node name="FreezeArea" type="Area2D"]
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("1_pra14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pra14")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 200
+speed_scale = 0.3
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 55.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 1.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_pra14")
+color_ramp = SubResource("Gradient_m4jps")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

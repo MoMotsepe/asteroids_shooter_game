@@ -1,0 +1,140 @@
+[gd_scene load_steps=11 format=3 uid="uid://d4bcn30x4obem"]
+
+[ext_resource type="Script" uid="uid://dfsrfo4ha0oi" path="res://scenes/game/game.gd" id="1_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://bjvk3q7wkkotl" path="res://assets/qaevyh08hsx51.jpg" id="2_bdhmt"]
+[ext_resource type="Texture2D" uid="uid://csnfy8v8aejc6" path="res://assets/pause.png" id="3_bdhmt"]
+[ext_resource type="PackedScene" uid="uid://b22u8ju53pwj5" path="res://scenes/earth/earth.tscn" id="3_iywne"]
+[ext_resource type="PackedScene" uid="uid://6kpg162fgwue" path="res://scenes/map/highlight_tile.tscn" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://xbn80o6o2k5d" path="res://scenes/map/placement_square.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://da5e7xm58d1ei" path="res://scenes/game/pause_button.gd" id="7_87uf6"]
+[ext_resource type="Script" uid="uid://c5mjmnkic37y0" path="res://scenes/game/score.gd" id="8_87uf6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u5sy4"]
+normal = Vector2(-1, 0)
+distance = -1899.0
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_lbhrr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1903.0
+offset_bottom = 897.0
+texture = ExtResource("2_bdhmt")
+expand_mode = 1
+
+[node name="PauseButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 1859.0
+offset_top = 4.0
+offset_right = 1931.0
+offset_bottom = 76.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_bdhmt")
+stretch_mode = 0
+script = ExtResource("7_87uf6")
+
+[node name="BossLabel" type="Label" parent="."]
+visible = false
+offset_top = 337.0
+offset_right = 1899.0
+offset_bottom = 478.0
+theme_override_font_sizes/font_size = 70
+text = "BOSS ASTEROID APPROACHING
+"
+horizontal_alignment = 1
+
+[node name="HighlightTile" parent="." instance=ExtResource("3_p57ef")]
+
+[node name="Earth" parent="." instance=ExtResource("3_iywne")]
+position = Vector2(966, 886)
+
+[node name="SideBorders" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="BorderLeft" type="CollisionShape2D" parent="SideBorders"]
+position = Vector2(-1, 1)
+shape = SubResource("WorldBoundaryShape2D_p57ef")
+
+[node name="BorderRight" type="CollisionShape2D" parent="SideBorders"]
+shape = SubResource("WorldBoundaryShape2D_u5sy4")
+
+[node name="PlacementSquares" type="Node2D" parent="."]
+
+[node name="PlacementSquare" parent="PlacementSquares" instance=ExtResource("5_iywne")]
+offset_left = 690.0
+offset_top = 657.0
+offset_right = 774.0
+offset_bottom = 741.0
+
+[node name="PlacementSquare2" parent="PlacementSquares" instance=ExtResource("5_iywne")]
+offset_left = 1097.0
+offset_top = 657.0
+offset_right = 1181.0
+offset_bottom = 741.0
+
+[node name="PlacementSquare3" parent="PlacementSquares" instance=ExtResource("5_iywne")]
+offset_left = 487.0
+offset_top = 657.0
+offset_right = 571.0
+offset_bottom = 741.0
+
+[node name="PlacementSquare4" parent="PlacementSquares" instance=ExtResource("5_iywne")]
+offset_left = 1298.0
+offset_top = 657.0
+offset_right = 1382.0
+offset_bottom = 741.0
+
+[node name="PlacementSquare5" parent="PlacementSquares" instance=ExtResource("5_iywne")]
+offset_left = 284.0
+offset_top = 657.0
+offset_right = 368.0
+offset_bottom = 741.0
+
+[node name="PlacementSquare6" parent="PlacementSquares" instance=ExtResource("5_iywne")]
+offset_left = 1502.0
+offset_top = 657.0
+offset_right = 1586.0
+offset_bottom = 741.0
+
+[node name="PlacementSquare7" parent="PlacementSquares" instance=ExtResource("5_iywne")]
+offset_left = 82.0
+offset_top = 657.0
+offset_right = 166.0
+offset_bottom = 741.0
+
+[node name="PlacementSquare8" parent="PlacementSquares" instance=ExtResource("5_iywne")]
+offset_left = 1706.0
+offset_top = 657.0
+offset_right = 1790.0
+offset_bottom = 741.0
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="AsteroidTimer" type="Timer" parent="Timers"]
+wait_time = 1.5
+
+[node name="RoundTimer" type="Timer" parent="Timers"]
+wait_time = 120.0
+
+[node name="BuildupTimer" type="Timer" parent="Timers"]
+wait_time = 5.0
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 76.0
+offset_top = 12.0
+offset_right = 189.0
+offset_bottom = 54.0
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "Score: 0"
+script = ExtResource("8_87uf6")
+
+[connection signal="pressed" from="PauseButton" to="PauseButton" method="_on_pressed"]
+[connection signal="EndGame" from="Earth" to="." method="_on_earth_end_game"]
+[connection signal="timeout" from="Timers/AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
+[connection signal="timeout" from="Timers/RoundTimer" to="." method="_on_round_timer_timeout"]
+[connection signal="timeout" from="Timers/BuildupTimer" to="." method="_on_buildup_timer_timeout"]

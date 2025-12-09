@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wwvpsi6ko2xj"
+path="res://.godot/imported/regular_explosion.mp3-3ca2aff57478fe1e9d4585f2afca4fa1.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects 2.0/asteroids/regular_explosion.mp3"
+dest_files=["res://.godot/imported/regular_explosion.mp3-3ca2aff57478fe1e9d4585f2afca4fa1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

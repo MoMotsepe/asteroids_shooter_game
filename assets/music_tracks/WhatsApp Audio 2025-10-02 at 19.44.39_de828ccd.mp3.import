@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jcsiol1fkntk"
+path="res://.godot/imported/WhatsApp Audio 2025-10-02 at 19.44.39_de828ccd.mp3-8a780b146d00ac15b20fbd56b455b4a0.mp3str"
+
+[deps]
+
+source_file="res://assets/music_tracks/WhatsApp Audio 2025-10-02 at 19.44.39_de828ccd.mp3"
+dest_files=["res://.godot/imported/WhatsApp Audio 2025-10-02 at 19.44.39_de828ccd.mp3-8a780b146d00ac15b20fbd56b455b4a0.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

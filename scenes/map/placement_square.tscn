@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://xbn80o6o2k5d"]
+
+[ext_resource type="Script" uid="uid://b8mxxp870wnlo" path="res://scenes/map/placement_square.gd" id="1_bx4oo"]
+[ext_resource type="PackedScene" uid="uid://dfvmmb0kdd12w" path="res://scenes/map/turret_menu.tscn" id="3_pivy1"]
+[ext_resource type="PackedScene" uid="uid://ce8kraynk2jhu" path="res://assets/Custom Assets/Turrets/Build_Station.glb" id="5_08tf2"]
+
+[node name="PlacementSquare" type="TextureButton"]
+texture_filter = 1
+offset_left = -65.0
+offset_top = -69.0
+offset_right = 71.0
+offset_bottom = 68.0
+toggle_mode = true
+stretch_mode = 0
+script = ExtResource("1_bx4oo")
+
+[node name="TurretMenu" parent="." instance=ExtResource("3_pivy1")]
+visible = false
+layout_mode = 0
+offset_left = 82.0
+offset_top = -144.0
+offset_right = 239.0
+offset_bottom = 5.0
+expand_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -64.5
+offset_right = 449.0
+offset_bottom = 447.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4293918721
+render_target_update_mode = 4
+
+[node name="Build_Station" parent="SubViewportContainer/SubViewport" instance=ExtResource("5_08tf2")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.075, 0)
+cull_mask = 24576
+current = true
+fov = 74.5
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.951372, -0.304502, 0.0465753, -0.0134297, 0.192053, 0.981293, -0.307751, 0.932949, -0.186803, -1.06345, 2.22763, 0)
+layers = 8192
+
+[node name="MenuTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]
+[connection signal="FireTurretSelected" from="TurretMenu" to="." method="_on_Fire_turret_menu_turret_selected"]
+[connection signal="IceTurretSelected" from="TurretMenu" to="." method="_on_Ice_turret_menu_turret_selected"]
+[connection signal="PiercingTurretSelected" from="TurretMenu" to="." method="_on_piercing_turret_menu_turret_selected"]
+[connection signal="TurretSelected" from="TurretMenu" to="." method="_on_turret_menu_turret_selected"]
+[connection signal="timeout" from="MenuTimer" to="." method="_on_menu_timer_timeout"]

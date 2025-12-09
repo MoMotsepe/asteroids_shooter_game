@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnhrcg3yj4l4f"]
+
+[ext_resource type="Script" uid="uid://jnkylk20wrs4" path="res://scenes/bullets/fire_bullet.gd" id="1_go4f5"]
+[ext_resource type="PackedScene" uid="uid://bxj2rua3mxaee" path="res://assets/Custom Assets/Projectile/Fire Projectile.glb" id="2_go4f5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go4f5"]
+size = Vector2(42, 5)
+
+[node name="FireBullet" type="Area2D"]
+z_index = 2
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_go4f5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_go4f5")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 23.0
+offset_top = -26.0
+offset_right = 535.0
+offset_bottom = 486.0
+rotation = 1.5708
+scale = Vector2(0.1, 0.1)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4293918728
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41733, 0.607742, 0.746873)
+cull_mask = 16384
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3267, 0.847237, 1.39824)
+layers = 16384
+light_bake_mode = 1
+light_cull_mask = 4293935104
+
+[node name="Fire Projectile" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_go4f5")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

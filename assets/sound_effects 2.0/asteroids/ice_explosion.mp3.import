@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmuh67hhpseok"
+path="res://.godot/imported/ice_explosion.mp3-f8f1efd4e1a5e7599675db16d2738a0e.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects 2.0/asteroids/ice_explosion.mp3"
+dest_files=["res://.godot/imported/ice_explosion.mp3-f8f1efd4e1a5e7599675db16d2738a0e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
